@@ -19,6 +19,16 @@ public:
   void incrementGrade();
   void decrementGrade();
 
+  class GradeTooHighException : public std::exception {
+  public:
+    const char *what() const throw() { return "Grade cannot go higher."; }
+  };
+
+  class GradeTooLowException : public std::exception {
+  public:
+    const char *what() const throw() { return "Grade cannot go lower."; }
+  };
+
 private:
   const std::string name_;
   int grade_;
