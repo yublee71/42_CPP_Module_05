@@ -1,6 +1,8 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
+#include "Form.hpp"
+
 #include <iostream>
 #include <string>
 
@@ -21,13 +23,15 @@ public:
 
   class GradeTooHighException : public std::exception {
   public:
-    const char *what() const throw() { return "Grade cannot go higher."; }
+    const char *what() const throw() { return "Grade is too high."; }
   };
 
   class GradeTooLowException : public std::exception {
   public:
-    const char *what() const throw() { return "Grade cannot go lower."; }
+    const char *what() const throw() { return "Grade is too low."; }
   };
+
+  void signForm(Form &form);
 
 private:
   const std::string name_;
