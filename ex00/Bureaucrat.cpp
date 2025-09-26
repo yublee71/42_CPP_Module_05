@@ -23,7 +23,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other)
   std::cout << "Copy constructor called." << std::endl;
 }
 
-Bureaucrat::~Bureaucrat() { std::cout << "Destructor called." << std::endl; }
+Bureaucrat::~Bureaucrat() {}
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other) {
   std::cout << "Copy assignment operator called." << std::endl;

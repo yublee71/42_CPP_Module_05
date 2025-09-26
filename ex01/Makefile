@@ -5,7 +5,8 @@ CFLAGS			:= $(MANDATORY_FLAGS)
 
 SRCS			:= \
 					main.cpp \
-					Bureaucrat.cpp
+					Bureaucrat.cpp \
+					Form.cpp
 
 BUILD_DIR		:= build
 OBJS			:= $(SRCS:%.cpp=$(BUILD_DIR)/%.o)

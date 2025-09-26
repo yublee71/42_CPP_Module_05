@@ -1,39 +1,43 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
+
+#include <iostream>
 
 int main() {
-  Bureaucrat a;
-  Bureaucrat b("Yubeen", 150);
-  Bureaucrat c(b);
-  Bureaucrat d;
+  Bureaucrat b_a("Yubeen", 150);
+  Form f_a;
+  Form f_b("Register Form", false, 1, 1);
 
-  d = b;
-
-  try {
-    Bureaucrat e("Top student", 0);
-  } catch (const Bureaucrat::GradeTooHighException &excp) {
-    std::cout << "Exception caught: " << excp.what() << std::endl;
-  } catch (const Bureaucrat::GradeTooLowException &excp) {
-    std::cout << "Exception caught: " << excp.what() << std::endl;
-  }
+  std::cout << f_a;
 
   try {
-    Bureaucrat f("Bottom student", 151);
-  } catch (const Bureaucrat::GradeTooHighException &excp) {
+    Form f_b("Register Form", false, 0, 1);
+  } catch (const Form::GradeTooHighException &excp) {
     std::cout << "Exception caught: " << excp.what() << std::endl;
-  } catch (const Bureaucrat::GradeTooLowException &excp) {
+  } catch (const Form::GradeTooLowException &excp) {
     std::cout << "Exception caught: " << excp.what() << std::endl;
   }
-
-  std::cout << a;
-  std::cout << b;
-  std::cout << c;
-  std::cout << d;
-
   try {
-    b.decrementGrade();
-  } catch (const Bureaucrat::GradeTooHighException &excp) {
+    Form f_c("Register Form", false, 1, 151);
+  } catch (const Form::GradeTooHighException &excp) {
     std::cout << "Exception caught: " << excp.what() << std::endl;
-  } catch (const Bureaucrat::GradeTooLowException &excp) {
+  } catch (const Form::GradeTooLowException &excp) {
     std::cout << "Exception caught: " << excp.what() << std::endl;
   }
+  try {
+    f_a.beSigned(b_a);
+  } catch (const Form::GradeTooHighException &excp) {
+    std::cout << "Exception caught: " << excp.what() << std::endl;
+  } catch (const Form::GradeTooLowException &excp) {
+    std::cout << "Exception caught: " << excp.what() << std::endl;
+  }
+  std::cout << f_a;
+  try {
+    f_b.beSigned(b_a);
+  } catch (const Form::GradeTooHighException &excp) {
+    std::cout << "Exception caught: " << excp.what() << std::endl;
+  } catch (const Form::GradeTooLowException &excp) {
+    std::cout << "Exception caught: " << excp.what() << std::endl;
+  }
+  std::cout << f_b;
 }

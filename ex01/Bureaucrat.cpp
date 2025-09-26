@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 #include <iostream>
 #include <string>
@@ -23,7 +24,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other)
   std::cout << "Copy constructor called." << std::endl;
 }
 
-Bureaucrat::~Bureaucrat() { std::cout << "Destructor called." << std::endl; }
+Bureaucrat::~Bureaucrat() {}
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other) {
   std::cout << "Copy assignment operator called." << std::endl;
@@ -50,6 +51,8 @@ void Bureaucrat::decrementGrade() {
   else
     grade_++;
 }
+
+void Bureaucrat::signForm(Form &form) { form.beSigned(*this); }
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat) {
   os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade()
