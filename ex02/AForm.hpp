@@ -39,6 +39,6 @@ private:
   const int grade_to_execute_;
 };
 
-std::ostream &operator<<(std::ostream &os, const AForm &aform);
+std::ostream &operator<<(std::ostream &os, const AForm &form);
 
 #endif

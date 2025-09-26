@@ -49,14 +49,14 @@ void AForm::beSigned(const Bureaucrat &bureaucrat) {
   }
 }
 
-std::ostream &operator<<(std::ostream &os, const AForm &aform) {
-  os << "AForm " << aform.getName();
-  if (aform.getIsSigned())
+std::ostream &operator<<(std::ostream &os, const AForm &form) {
+  os << "AForm " << form.getName();
+  if (form.getIsSigned())
     os << " is signed,";
   else
     os << " is not signed,";
-  os << " and the grade required to sign it is " << aform.getGradeToSign()
-     << ", and the grade required to execute it is "
-     << aform.getGradeToExecute() << "." << std::endl;
+  os << " and the grade required to sign it is " << form.getGradeToSign()
+     << ", and the grade required to execute it is " << form.getGradeToExecute()
+     << "." << std::endl;
   return os;
 }
