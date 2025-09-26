@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 #include <iostream>
 #include <string>
@@ -52,7 +52,7 @@ void Bureaucrat::decrementGrade() {
     grade_++;
 }
 
-void Bureaucrat::signForm(Form &form) const { form.beSigned(*this); }
+void Bureaucrat::signAForm(AForm &aform) const { aform.beSigned(*this); }
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat) {
   os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade()

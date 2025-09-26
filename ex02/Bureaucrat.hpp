@@ -1,7 +1,7 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 #include <iostream>
 #include <string>
@@ -31,7 +31,7 @@ public:
     const char *what() const throw() { return "Grade is too low."; }
   };
 
-  void signForm(Form &form) const;
+  void signAForm(AForm &aform) const;
 
 private:
   const std::string name_;

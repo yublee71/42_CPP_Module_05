@@ -1,42 +1,42 @@
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
 
 #include <iostream>
 
 int main() {
   Bureaucrat b_a("Yubeen", 150);
-  Form f_a;
-  Form f_b("Register Form", false, 1, 1);
+  AForm f_a;
+  AForm f_b("Register Form", false, 1, 1);
 
   std::cout << f_a;
 
   try {
-    Form f_b("Register Form", false, 0, 1);
-  } catch (const Form::GradeTooHighException &excp) {
+    AForm f_b("Register Form", false, 0, 1);
+  } catch (const AForm::GradeTooHighException &excp) {
     std::cout << "Exception caught: " << excp.what() << std::endl;
-  } catch (const Form::GradeTooLowException &excp) {
+  } catch (const AForm::GradeTooLowException &excp) {
     std::cout << "Exception caught: " << excp.what() << std::endl;
   }
   try {
-    Form f_c("Register Form", false, 1, 151);
-  } catch (const Form::GradeTooHighException &excp) {
+    AForm f_c("Register Form", false, 1, 151);
+  } catch (const AForm::GradeTooHighException &excp) {
     std::cout << "Exception caught: " << excp.what() << std::endl;
-  } catch (const Form::GradeTooLowException &excp) {
+  } catch (const AForm::GradeTooLowException &excp) {
     std::cout << "Exception caught: " << excp.what() << std::endl;
   }
   try {
     f_a.beSigned(b_a);
-  } catch (const Form::GradeTooHighException &excp) {
+  } catch (const AForm::GradeTooHighException &excp) {
     std::cout << "Exception caught: " << excp.what() << std::endl;
-  } catch (const Form::GradeTooLowException &excp) {
+  } catch (const AForm::GradeTooLowException &excp) {
     std::cout << "Exception caught: " << excp.what() << std::endl;
   }
   std::cout << f_a;
   try {
     f_b.beSigned(b_a);
-  } catch (const Form::GradeTooHighException &excp) {
+  } catch (const AForm::GradeTooHighException &excp) {
     std::cout << "Exception caught: " << excp.what() << std::endl;
-  } catch (const Form::GradeTooLowException &excp) {
+  } catch (const AForm::GradeTooLowException &excp) {
     std::cout << "Exception caught: " << excp.what() << std::endl;
   }
   std::cout << f_b;
