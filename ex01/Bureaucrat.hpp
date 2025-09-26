@@ -31,7 +31,7 @@ public:
     const char *what() const throw() { return "Grade is too low."; }
   };
 
-  void signForm(Form &form);
+  void signForm(Form &form) const;
 
 private:
   const std::string name_;
