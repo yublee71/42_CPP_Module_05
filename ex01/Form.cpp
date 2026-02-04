@@ -50,12 +50,9 @@ int Form::getGradeToExecute() const {
 
 void Form::beSigned(const Bureaucrat &bureaucrat) {
   if (bureaucrat.getGrade() > grade_to_sign_) {
-    std::cout << bureaucrat.getName() << " couldn't sign " << name_ <<
-        " because the grade is too low." << std::endl;
     throw GradeTooLowException();
   }
   is_signed_ = true;
-  std::cout << bureaucrat.getName() << " signed " << name_ << "." << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &os, const Form &form) {
