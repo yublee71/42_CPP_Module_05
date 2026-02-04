@@ -1,15 +1,13 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include "AForm.hpp"
-
 #include <iostream>
 #include <string>
 
 class Bureaucrat {
 public:
   Bureaucrat();
-  Bureaucrat(std::string name, int grade);
+  Bureaucrat(const std::string &name, int grade);
   Bureaucrat(const Bureaucrat &other);
   ~Bureaucrat();
 
@@ -23,15 +21,17 @@ public:
 
   class GradeTooHighException : public std::exception {
   public:
-    const char *what() const throw() { return "Grade is too high."; }
+    const char *what() const throw() {
+      return "Grade is too high.";
+    }
   };
 
   class GradeTooLowException : public std::exception {
   public:
-    const char *what() const throw() { return "Grade is too low."; }
+    const char *what() const throw() {
+      return "Grade is too low.";
+    }
   };
-
-  void signAForm(AForm &aform) const;
 
 private:
   const std::string name_;
