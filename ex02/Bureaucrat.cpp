@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 
+#include "AForm.hpp"
+
 Bureaucrat::Bureaucrat() : name_("Unknown"), grade_(150) {
   std::cout << "Default constructor called." << std::endl;
 }
@@ -38,13 +40,23 @@ int Bureaucrat::getGrade() const {
 }
 
 void Bureaucrat::incrementGrade() {
-  if (grade_ - 1 < 1) throw GradeTooLowException();
+  if (grade_ - 1 < 1) throw GradeTooHighException();
   grade_--;
 }
 
 void Bureaucrat::decrementGrade() {
-  if (grade_ + 1 > 150) throw GradeTooHighException();
+  if (grade_ + 1 > 150) throw GradeTooLowException();
   grade_++;
+}
+
+void Bureaucrat::signForm(AForm &form) const {
+  try {
+    form.beSigned(*this);
+    std::cout << name_ << " signed " << form.getName() << "." << std::endl;
+  } catch (AForm::GradeTooLowException e) {
+    std::cout << name_ << " couldn't sign " << form.getName() <<
+        " because its grade is too low." << std::endl;
+  }
 }
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat) {

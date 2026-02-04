@@ -1,5 +1,5 @@
-#ifndef AFORM_HPP
-#define AFORM_HPP
+#ifndef FORM_HPP
+#define FORM_HPP
 
 #include <string>
 
@@ -8,8 +8,8 @@ class Bureaucrat;
 class AForm {
 public:
   AForm();
-  AForm(std::string name, bool is_signed, int grade_to_sign,
-        int grade_to_execute);
+  AForm(const std::string &name, bool is_signed, int grade_to_sign,
+       int grade_to_execute);
   AForm(const AForm &other);
   ~AForm();
 
@@ -24,12 +24,16 @@ public:
 
   class GradeTooHighException : public std::exception {
   public:
-    const char *what() const throw() { return "Grade is too high."; };
+    const char *what() const throw() {
+      return "Grade is too high.";
+    };
   };
 
   class GradeTooLowException : public std::exception {
   public:
-    const char *what() const throw() { return "Grade is too low."; };
+    const char *what() const throw() {
+      return "Grade is too low.";
+    };
   };
 
 private:
