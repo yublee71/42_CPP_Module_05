@@ -1,6 +1,9 @@
 #ifndef SHRUBBERYCREATIONFORM_HPP
 #define SHRUBBERYCREATIONFORM_HPP
+
 #include "AForm.hpp"
+#include <fstream>
+#include <ostream>
 
 class ShrubberyCreationForm : public AForm {
 private:
@@ -13,7 +16,7 @@ public:
   ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
   ~ShrubberyCreationForm();
 
-  void executeAction(const Bureaucrat &executor) const;
+  void executeAction() const;
 };
 
 #endif

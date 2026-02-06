@@ -12,7 +12,8 @@ public:
   PresidentialPardonForm(const PresidentialPardonForm &other);
   PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
   ~PresidentialPardonForm();
-  void executeAction(Bureaucrat &executor) const;
+
+  void executeAction() const;
 };
 
 #endif

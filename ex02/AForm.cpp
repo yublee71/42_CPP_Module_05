@@ -7,7 +7,7 @@ AForm::AForm()
 }
 
 AForm::AForm(const std::string &name, bool is_signed, int grade_to_sign,
-           int grade_to_execute)
+             int grade_to_execute)
   : name_(name), is_signed_(is_signed), grade_to_sign_(grade_to_sign),
     grade_to_execute_(grade_to_execute) {
   if (grade_to_sign_ < 1 || grade_to_execute_ < 1)
@@ -62,7 +62,7 @@ void AForm::execute(const Bureaucrat &executor) const {
   if (!is_signed_) {
     throw FormNotSignedException();
   }
-  executeAction(executor);
+  executeAction();
 }
 
 std::ostream &operator<<(std::ostream &os, const AForm &form) {

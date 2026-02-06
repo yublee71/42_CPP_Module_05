@@ -6,7 +6,10 @@ CFLAGS			:= $(MANDATORY_FLAGS)
 SRCS			:= \
 					main.cpp \
 					Bureaucrat.cpp \
-					AForm.cpp
+					AForm.cpp \
+					PresidentialPardonForm.cpp \
+					RobotomyRequestForm.cpp \
+					ShrubberyCreationForm.cpp
 
 BUILD_DIR		:= build
 OBJS			:= $(SRCS:%.cpp=$(BUILD_DIR)/%.o)

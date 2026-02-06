@@ -1,6 +1,10 @@
 #ifndef ROBOTOMYREQUESTFORM_HPP
 #define ROBOTOMYREQUESTFORM_HPP
+
 #include "AForm.hpp"
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 class RobotomyRequestForm : public AForm {
 private:
@@ -13,7 +17,7 @@ public:
   RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
   ~RobotomyRequestForm();
 
-  void executeAction(Bureaucrat &executor) const;
+  void executeAction() const;
 };
 
 #endif

@@ -1,5 +1,8 @@
 #include "RobotomyRequestForm.hpp"
 
+#include <iostream>
+#include <ostream>
+
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", false,
                                                    72, 45), target_("Unknown") {
 }
@@ -24,5 +27,10 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(
 RobotomyRequestForm::~RobotomyRequestForm() {
 }
 
-void RobotomyRequestForm::executeAction(Bureaucrat &executor) const {
+void RobotomyRequestForm::executeAction() const {
+  std::cout << "Tdddddd....." << std::endl;
+  srand(time(0));
+  int i = rand() % 2;
+  if (i == 0) std::cout << target_ << " has been robotomized." << std::endl;
+  else std::cout << "Robotomization of " << target_ << " failed." << std::endl;
 }

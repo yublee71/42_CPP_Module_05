@@ -49,7 +49,7 @@ private:
   bool is_signed_;
   const int grade_to_sign_;
   const int grade_to_execute_;
-  virtual void executeAction(const Bureaucrat &executor) const = 0;
+  virtual void executeAction() const = 0;
 };
 
 std::ostream &operator<<(std::ostream &os, const AForm &form);
