@@ -8,7 +8,7 @@ private:
 
 public:
   RobotomyRequestForm();
-  RobotomyRequestForm(std::string const &target);
+  RobotomyRequestForm(const std::string &target);
   RobotomyRequestForm(const RobotomyRequestForm &other);
   RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
   ~RobotomyRequestForm();
