@@ -1,41 +1,39 @@
-#include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include "Intern.hpp"
 
 #include <iostream>
 
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-
 int main() {
-  std::string green = "\e[32m";
-  std::string reset = "\e[0m";
+  bool quit = false;
+  const std::string form_names[3] = {
+    "robotomy request", "shrubbery creation", "presidential pardon"
+  };
+  std::string form_name;
 
-  Bureaucrat bureaucrat1("b1", 138);
+  while (!quit) {
+    std::cout <<
+        "Please enter the name of the form you want to create "
+        "(shrubbery creation / robotomy request / presidential pardon)." <<
+        std::endl;
+    std::getline(std::cin, form_name);
+    for (int i = 0; i < 3; i++) {
+      if (form_name == form_names[i]) {
+        quit = true;
+      }
+    }
+    if (!quit) {
+      std::cout << "Invalid form name. Please enter again." << std::endl;
+    }
+  }
 
-  std::cout << green << "Shrubbery form creation: " << reset << std::endl;
-  ShrubberyCreationForm shrubbery_creation_form("home");
-  bureaucrat1.signForm(shrubbery_creation_form);
-  bureaucrat1.executeForm(shrubbery_creation_form);
-  bureaucrat1.incrementGrade();
-  std::cout << green << "After incrementing the grade: " << reset << std::endl;
-  bureaucrat1.executeForm(shrubbery_creation_form);
+  std::cout << "Please enter the target of the form." << std::endl;
+  std::string target;
+  std::getline(std::cin, target);
 
-  std::cout << std::endl;
-  std::cout << std::endl;
-
-  Bureaucrat bureaucrat2("b2", 1);
-  std::cout << green << "Robotomy form creation: " << reset << std::endl;
-  RobotomyRequestForm robotomy_request_form("robot");
-  bureaucrat2.signForm(robotomy_request_form);
-  bureaucrat2.executeForm(robotomy_request_form);
-
-  std::cout << std::endl;
-  std::cout << std::endl;
-
-  std::cout << green << "President form creation: " << reset << std::endl;
-  PresidentialPardonForm presidential_pardon_form("president");
-  bureaucrat2.executeForm(presidential_pardon_form);
-  bureaucrat2.signForm(presidential_pardon_form);
-  bureaucrat2.executeForm(presidential_pardon_form);
+  Intern intern;
+  AForm *form = intern.makeForm(form_name, target);
+  Bureaucrat bureaucrat("Yubeen", 1);
+  bureaucrat.signForm(*form);
+  bureaucrat.executeForm(*form);
+  delete form;
 }

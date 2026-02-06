@@ -9,7 +9,8 @@ SRCS			:= \
 					AForm.cpp \
 					PresidentialPardonForm.cpp \
 					RobotomyRequestForm.cpp \
-					ShrubberyCreationForm.cpp
+					ShrubberyCreationForm.cpp \
+					Intern.cpp
 
 BUILD_DIR		:= build
 OBJS			:= $(SRCS:%.cpp=$(BUILD_DIR)/%.o)
