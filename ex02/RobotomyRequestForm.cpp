@@ -23,3 +23,6 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(
 
 RobotomyRequestForm::~RobotomyRequestForm() {
 }
+
+void RobotomyRequestForm::executeAction(Bureaucrat &executor) const {
+}

@@ -26,3 +26,6 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(
 
 PresidentialPardonForm::~PresidentialPardonForm() {
 }
+
+void PresidentialPardonForm::executeAction(Bureaucrat &executor) const {
+}

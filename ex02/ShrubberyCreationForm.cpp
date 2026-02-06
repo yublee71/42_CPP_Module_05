@@ -24,3 +24,6 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {
 }
+
+void ShrubberyCreationForm::executeAction(const Bureaucrat &executor) const {
+}
